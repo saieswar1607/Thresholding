@@ -9,18 +9,28 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 ## Algorithm
 
 ### Step1:
+
+Import required packages
 <br>
 
 ### Step2:
+
+Import the image to operate on.
 <br>
 
 ### Step3:
+
+Convert the image to grayscale image.
 <br>
 
 ### Step4:
+
+Apply threshold operators on the image.
 <br>
 
 ### Step5:
+
+Display the output.
 <br>
 
 ## Program
@@ -34,29 +44,17 @@ import cv2
 import matplotlib.pyplot as plt
 image = cv2.imread("goat.jpg")
 
-
-
-
-
-
-
 # Read the Image and convert to grayscale
 
 grayImage = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
-
 # Use Global thresholding to segment the image
-
 
 ret,thresh = cv2.threshold(grayImage,100,200,cv2.THRESH_BINARY)
 ret1,thresh1 = cv2.threshold(grayImage,100,200,cv2.THRESH_BINARY_INV)
 ret2, thresh2 = cv2.threshold(grayImage,100,200,cv2.THRESH_TRUNC)
 ret3, thresh3 = cv2.threshold(grayImage,100,200,cv2.THRESH_TOZERO)
 ret4, thresh4 = cv2.threshold(grayImage,100,200,cv2.THRESH_TOZERO_INV)
-
-
-
-
 
 # Use Adaptive thresholding to segment the image
 
@@ -65,13 +63,9 @@ th2 = cv2.adaptiveThreshold(grayImage,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THR
 titles = ["Original Image","Adaptive Mean Thresholding","Adaptive Gaussian Thresholding"]
 imgs = [grayImage,th1,th2]
 
-
-
-
 # Use Otsu's method to segment the image 
+
 ret5,th3 = cv2.threshold(grayImage,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-
-
 
 # Display the results
 
@@ -90,12 +84,7 @@ for i in range(3):
     plt.xticks([]),plt.yticks([])
 plt.show()
 
-
 cv2.imshow("Otsu method",th3)
-
-
-
-
 ```
 ## Output
 
@@ -125,4 +114,3 @@ cv2.imshow("Otsu method",th3)
 
 ## Result
 Thus the images are segmented using global thresholding, adaptive thresholding and optimum global thresholding using python and OpenCV.
-
